@@ -1,0 +1,18 @@
+module.exports = {
+  primary: '#1e88e5',
+  secondary: '#ff5722',
+  success: '#4caf50',
+  danger: '#f44336',
+  warning: '#ff9800',
+  info: '#2196f3',
+  light: '#f1f1f1',
+  dark: '#212121',
+  white: '#fff',
+  black: '#000',
+  transparent: 'transparent',
+  gray: '#9e9e9e',
+  'gray-100': '#f5f5f5',
+  'gray-200': '#eeeeee',
+  'gray-300': '#e0e0e0',
+  'gray-400': '#bdbdbd',
+};

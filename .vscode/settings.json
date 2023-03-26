@@ -1,0 +1,26 @@
+{
+    "scss.lint.unknownAtRules": "ignore",
+    "files.exclude": {
+		"**/.git": true,
+		"*.cache": true,
+		"**/.vscode": true,
+		"**/node_modules": true,
+		"*-lock.json": true,
+		"*.lock": true,
+		"*.ini": true,
+		".plugins": true,
+		"webpack.config.js": true,
+		"package.json": true,
+		".gitignore": true,
+		"docker/": true,
+		"scripts/": true,
+		"config/": true,
+		".eslintrc.js": true,
+		".stylelintrc.json": true,
+		".eslintignore": true,
+		"*.log": true,
+		".npmrc": true,
+		".babelrc": true,
+		"postcss.config.js": true
+	}
+}
