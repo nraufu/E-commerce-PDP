@@ -1,6 +1,11 @@
 import React from 'react';
-import Welcome from './components/Welcome';
 
-const App = () => <Welcome />;
+function App() {
+  return (
+    <div className='text-primary text-title'>
+      App
+    </div>
+  );
+}
 
 export default App;
