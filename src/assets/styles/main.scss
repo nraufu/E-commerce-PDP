@@ -7,4 +7,5 @@
 @import './_general.scss';
 
 /* Components styling */
-@import '../../components/**/style.scss';
+@import '../../components/**/*.scss';
+@import '../../App.scss';

@@ -1,0 +1,23 @@
+.navbar__menu {
+    &-item {
+        @apply mr-[32px] w-full relative;
+
+        &::before {
+            @apply content-[''] absolute -bottom-[48px] opacity-0 h-[4px] w-full bg-primary transition-all duration-500;
+        }
+
+        &:hover {
+            &::before {
+                @apply opacity-100 -bottom-[46px];
+            }
+        }
+    }
+
+    &-link {
+        @apply text-[15px] leading-[26px] text-secondary font-normal transition-all duration-500 cursor-pointer;
+
+        &:hover {
+            @apply text-dark;
+        }
+    }
+}

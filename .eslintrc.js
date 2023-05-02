@@ -31,6 +31,8 @@ module.exports = {
       { caseSensitive: false },
     ],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'react/prop-types': 'off',
+    'react/jsx-curly-spacing': [2, { when: 'always', children: true }],
   },
   settings: {
     'import/resolver': {

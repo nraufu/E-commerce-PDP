@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
+  // eslint-disable-next-line no-unused-vars
+  const [cartItems, setCartItems] = useState([]);
+
   return (
-    <div className='text-primary text-title'>
-      App
+    <div id='app'>
+      <Navbar cartItems={ cartItems }/>
     </div>
   );
 }

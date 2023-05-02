@@ -1,0 +1,57 @@
+.navbar {
+    @apply relative flex items-center justify-between mt-[28px] pb-[34px] border-b border-b-gray-light;
+
+    &__right-part, 
+    &__left-part, 
+    &__menu {
+        @apply flex items-center;
+    }
+
+    &__logo {
+        @apply mr-[56px];
+    }
+
+    &__cart {
+        @apply relative;
+
+        &-counter {
+            @apply absolute -top-[6px] -right-[6px] flex items-center justify-center w-[19px] h-[13px] text-[10px] leading-[auto] text-white bg-primary rounded-full font-medium;
+        }
+
+        &-icon {
+            @apply cursor-pointer transition-all duration-500;
+    
+            &:hover {
+                filter: brightness(0.129) contrast(0.871);
+            }
+        }
+
+        &-info {
+            @apply absolute top-[40px] left-1/2 transform -translate-x-1/2 w-[360px] bg-white border border-gray-light rounded-[8px] shadow-md opacity-0 transition-all duration-500 translate-y-[-20px] invisible;
+
+            &--show {
+                @apply visible opacity-100 translate-y-0;
+            }
+
+            &--title {
+                @apply block w-full border-b border-b-gray-light p-[24px] font-semibold text-paragraph-medium-alt;
+            }
+
+            &--empty {
+                @apply text-paragraph-medium text-secondary font-semibold h-[188px] flex items-center justify-center;
+            }
+
+            &--items {
+                @apply flex flex-col;
+            }
+        }
+    }
+
+    &__user-icon {
+        @apply block w-[50px] h-[50px] border-2 border-transparent transition-all duration-500 rounded-full cursor-pointer ml-[46px] ;
+
+        &:hover {
+            @apply border-primary;
+        }
+    }
+}
