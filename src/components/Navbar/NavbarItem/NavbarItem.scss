@@ -1,23 +1,27 @@
 .navbar__menu {
+    $self: &;
+
     &-item {
-        @apply mr-[32px] w-full relative;
+        @apply lg:mr-[32px] mb-[20px] lg:mb-0 w-full relative;
 
         &::before {
             @apply content-[''] absolute -bottom-[48px] opacity-0 h-[4px] w-full bg-primary transition-all duration-500;
         }
 
         &:hover {
+            @apply cursor-pointer;
+
+            #{$self}-link {
+                @apply lg:text-dark;
+            }
+
             &::before {
-                @apply opacity-100 -bottom-[46px];
+                @apply lg:opacity-100 lg:-bottom-[46px];
             }
         }
     }
 
     &-link {
-        @apply text-[15px] leading-[26px] text-secondary font-normal transition-all duration-500 cursor-pointer;
-
-        &:hover {
-            @apply text-dark;
-        }
+        @apply text-paragraph-big-alt lg:text-paragraph-small text-dark font-semibold lg:text-secondary lg:font-normal transition-all duration-500;
     }
 }

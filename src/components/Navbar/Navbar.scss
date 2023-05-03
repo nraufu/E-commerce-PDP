@@ -1,5 +1,21 @@
 .navbar {
-    @apply relative flex items-center justify-between mt-[28px] pb-[34px] border-b border-b-gray-light;
+    $self: &;
+
+    @apply relative flex items-center justify-between pt-[19px] pb-[25px] px-[24px] lg:px-0 lg:pt-[28px] lg:pb-[34px] border-b border-b-gray-light;
+
+    &::before {
+        @apply content-[''] fixed top-0 left-0 w-full h-full bg-black opacity-0 z-[5] transition-all duration-500 invisible lg:hidden;
+    }
+
+    &--open {
+        &::before {
+            @apply visible opacity-75;
+        }
+
+        #{$self}__menu {
+            @apply translate-x-0 visible;
+        }
+    }
 
     &__right-part, 
     &__left-part, 
@@ -7,8 +23,12 @@
         @apply flex items-center;
     }
 
+    &__menu {
+        @apply flex flex-col lg:flex-row fixed lg:relative top-0 left-0 w-[250px] lg:w-auto h-full bg-white shadow-md lg:shadow-none z-10 pt-[92px] pl-[24px] lg:p-0 invisible lg:visible -translate-x-full transition-all duration-500 lg:transform-none;
+    }
+
     &__logo {
-        @apply mr-[56px];
+        @apply mr-[56px] ml-[16px] lg:ml-0;
     }
 
     &__cart {
@@ -27,7 +47,7 @@
         }
 
         &-info {
-            @apply absolute top-[40px] left-1/2 transform -translate-x-1/2 w-[360px] bg-white border border-gray-light rounded-[8px] shadow-md opacity-0 transition-all duration-500 translate-y-[-20px] invisible;
+            @apply absolute top-[72px] left-[8px] right-[8px] w-full lg:top-[40px] lg:left-1/2 lg:right-0 lg:transform lg:-translate-x-1/2 lg:w-[360px] bg-white border border-gray-light rounded-[8px] shadow-md opacity-0 transition-all duration-500 translate-y-[-20px] invisible;
 
             &--show {
                 @apply visible opacity-100 translate-y-0;
@@ -48,10 +68,18 @@
     }
 
     &__user-icon {
-        @apply block w-[50px] h-[50px] border-2 border-transparent transition-all duration-500 rounded-full cursor-pointer ml-[46px] ;
+        @apply block w-[24px] h-[24px] lg:w-[50px] lg:h-[50px] border-2 border-transparent transition-all duration-500 rounded-full cursor-pointer ml-[22px] lg:ml-[46px];
 
         &:hover {
             @apply border-primary;
+        }
+    }
+
+    &__hamburger-menu {
+        @apply border-none outline-none lg:hidden;
+
+        &--close {
+            @apply absolute top-[24px] left-[24px] block;
         }
     }
 }
