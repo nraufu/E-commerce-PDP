@@ -23,6 +23,10 @@
         @apply flex items-center;
     }
 
+    &__left-part {
+        @apply relative;
+    }
+
     &__menu {
         @apply flex flex-col lg:flex-row fixed lg:relative top-0 left-0 w-[250px] lg:w-auto h-full bg-white shadow-md lg:shadow-none z-10 pt-[92px] pl-[24px] lg:p-0 invisible lg:visible -translate-x-full transition-all duration-500 lg:transform-none;
     }
@@ -34,41 +38,21 @@
     &__cart {
         @apply relative;
 
-        &-counter {
+        &--counter {
             @apply absolute -top-[6px] -right-[6px] flex items-center justify-center w-[19px] h-[13px] text-[10px] leading-[auto] text-white bg-primary rounded-full font-medium;
         }
 
-        &-icon {
+        &--icon {
             @apply cursor-pointer transition-all duration-500;
     
             &:hover {
                 filter: brightness(0.129) contrast(0.871);
             }
         }
-
-        &-info {
-            @apply absolute top-[72px] left-[8px] right-[8px] w-full lg:top-[40px] lg:left-1/2 lg:right-0 lg:transform lg:-translate-x-1/2 lg:w-[360px] bg-white border border-gray-light rounded-[8px] shadow-md opacity-0 transition-all duration-500 translate-y-[-20px] invisible;
-
-            &--show {
-                @apply visible opacity-100 translate-y-0;
-            }
-
-            &--title {
-                @apply block w-full border-b border-b-gray-light p-[24px] font-semibold text-paragraph-medium-alt;
-            }
-
-            &--empty {
-                @apply text-paragraph-medium text-secondary font-semibold h-[188px] flex items-center justify-center;
-            }
-
-            &--items {
-                @apply flex flex-col;
-            }
-        }
     }
 
     &__user-icon {
-        @apply block w-[24px] h-[24px] lg:w-[50px] lg:h-[50px] border-2 border-transparent transition-all duration-500 rounded-full cursor-pointer ml-[22px] lg:ml-[46px];
+        @apply block w-[30px] h-[30px] lg:w-[50px] lg:h-[50px] border-2 border-transparent transition-all duration-500 rounded-full cursor-pointer ml-[22px] lg:ml-[46px];
 
         &:hover {
             @apply border-primary;

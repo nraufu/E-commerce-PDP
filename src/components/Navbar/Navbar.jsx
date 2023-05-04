@@ -6,60 +6,70 @@ import Logo from '../../assets/images/logo.svg';
 import UserIcon from '../../assets/images/image-avatar.png';
 import MenuIcon from '../../assets/images/icon-menu.svg';
 import CloseIcon from '../../assets/images/icon-close.svg';
+import CartIcon from '../../assets/images/icon-cart.svg';
 
 export default function Navbar({ cartItems }) {
-  const [showMenu, setShowMenu] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
+    const [showCart, setShowCart] = useState(false);
 
-  const menuRef = useRef(null);
+    const ref = useRef(null);
 
-  const navItems = [
-    { label: 'Collections', link: '/' },
-    { label: 'Men', link: '/men' },
-    { label: 'Women', link: '/women' },
-    { label: 'About', link: '/about' },
-    { label: 'Contact', link: '/contact' },
-  ];
+    const navItems = [
+        { label: 'Collections', link: '/' },
+        { label: 'Men', link: '/men' },
+        { label: 'Women', link: '/women' },
+        { label: 'About', link: '/about' },
+        { label: 'Contact', link: '/contact' },
+    ];
 
-  const navbarClass = clsx('navbar', {
-    'navbar--open': showMenu,
-  });
+    const navbarClass = clsx('navbar', {
+        'navbar--open': showMenu,
+    });
 
-  const handleToggleMenuClick = () => setShowMenu(!showMenu);
+    const handleToggleMenuClick = () => setShowMenu(!showMenu);
 
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (showMenu && menuRef.current && !menuRef.current.contains(event.target)) {
-        setShowMenu(false);
-      }
-    }
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (ref.current
+          && !ref.current.contains(event.target)
+          && event.target.parentNode !== ref.current
+            ) {
+                setShowCart(false);
+            }
+        }
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  });
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    });
 
-  return (
-  <nav className={ navbarClass }>
-    <div className="navbar__right-part">
-      <button className='navbar__hamburger-menu' onClick={ handleToggleMenuClick }>
-        <img src={ MenuIcon } alt="closed-menu" className='navbar__hamburger-menu--open'/>
-      </button>
-      <img src={ Logo } alt="logo" className="navbar__logo" />
+    return (
+        <nav className={ navbarClass } ref={ ref }>
+            <div className="navbar__right-part">
+                <button className='navbar__hamburger-menu' onClick={ handleToggleMenuClick }>
+                    <img src={ MenuIcon } alt="closed-menu" className='navbar__hamburger-menu--open'/>
+                </button>
+                <img src={ Logo } alt="logo" className="navbar__logo" />
 
-      <ul className="navbar__menu" ref={ menuRef }>
-        <button className='navbar__hamburger-menu' onClick={ handleToggleMenuClick }>
-          <img src={ CloseIcon } alt="opened-menu" className='navbar__hamburger-menu--close' />
-        </button>
-        { navItems.map((item, index) => (
-          <NavBarItem key={ index } label={ item.label } link={ item.link } />
-        )) }
-      </ul>
-    </div>
+                <ul className="navbar__menu">
+                    <button className='navbar__hamburger-menu' onClick={ handleToggleMenuClick }>
+                        <img src={ CloseIcon } alt="opened-menu" className='navbar__hamburger-menu--close' />
+                    </button>
+                    { navItems.map((item, index) => (
+                        <NavBarItem key={ index } label={ item.label } link={ item.link } />
+                    )) }
+                </ul>
+            </div>
 
-    <div className="navbar__left-part">
-      <Cart cartItems={ cartItems }/>
-      <img src={ UserIcon } alt="user-img" className='navbar__user-icon' />
-    </div>
-  </nav>);
+            <div className="navbar__left-part">
+                <div className="navbar__cart">
+                    { cartItems.length > 0 && <span className='navbar__cart--counter'>{ cartItems.length }</span> }
+                    <img src={ CartIcon } alt="shopping-bag" className="navbar__cart--icon" onClick={ () => setShowCart(!showCart) }/>
+                </div>
+                <img src={ UserIcon } alt="user-img" className='navbar__user-icon' />
+            </div>
+
+            <Cart cartItems={ cartItems } showCart={ showCart }/>
+        </nav>);
 }
