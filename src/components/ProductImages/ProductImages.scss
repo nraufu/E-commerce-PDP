@@ -1,0 +1,23 @@
+.product-images {
+    @apply flex flex-col;
+
+    &__main-image {
+        @apply w-full h-[300px] lg:h-[445px] lg:w-[445px] rounded-[15px] block overflow-hidden mb-[32px] cursor-pointer;
+    }
+
+    &__thumbnails {
+        @apply flex flex-nowrap gap-[31px];
+
+        &-item {
+            @apply w-[88px] h-[88px] rounded-[10px] overflow-hidden cursor-pointer transition-all duration-500 border-2 border-transparent;
+
+            &:hover {
+                @apply opacity-75;
+            }
+
+            &--active {
+                @apply border-primary opacity-75;
+            }
+        }
+    }
+}

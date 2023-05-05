@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
+import ProductDetail from './components/ProductDetail/ProductDetail';
 
 function App() {
     // eslint-disable-next-line no-unused-vars
@@ -8,6 +9,7 @@ function App() {
     return (
         <div id='app'>
             <Navbar cartItems={ cartItems }/>
+            <ProductDetail />
         </div>
     );
 }
