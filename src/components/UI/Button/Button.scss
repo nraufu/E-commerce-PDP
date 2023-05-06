@@ -1,0 +1,23 @@
+.button {
+    @apply flex items-center justify-center h-[56px] w-full bg-gray rounded-[10px] transition-opacity duration-500;
+
+    &--primary {
+        @apply bg-primary;
+    }
+
+    &--secondary {
+        @apply bg-secondary;
+    }
+
+    &--disabled {
+        @apply bg-gray-light;
+    }
+
+    &:focus {
+        @apply outline-none border-none;
+    }
+
+    &:hover {
+        @apply opacity-75;
+    }
+}

@@ -2,7 +2,7 @@
     @apply flex flex-col;
 
     &__main-image {
-        @apply w-full h-[300px] lg:h-[445px] lg:w-[445px] rounded-[15px] block overflow-hidden mb-[32px] cursor-pointer;
+        @apply w-full h-[300px] lg:h-[445px] lg:w-[445px] lg:rounded-[15px] block overflow-hidden mb-[32px] cursor-pointer object-cover;
     }
 
     &__thumbnails {

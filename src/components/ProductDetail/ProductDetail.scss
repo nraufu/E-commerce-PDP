@@ -1,3 +1,69 @@
 .product-detail {
     @apply flex flex-col gap-0 lg:flex-row lg:gap-[125px] pt-0 lg:pt-[90px] px-0 lg:px-[48px];
+
+    &__right-part {
+        @apply flex flex-col justify-center;
+    }
+
+    &__subtitle {
+        @apply text-subtitle-small text-primary tracking-[2px] uppercase font-semibold mb-[24px];
+    }
+
+    &__title {
+        @apply text-title text-dark font-semibold mb-[32px];
+    }
+
+    &__description {
+        @apply text-paragraph-medium text-secondary mb-[28px] font-normal;
+    }
+
+    &__price {
+        @apply flex flex-wrap items-center;
+
+        &--new {
+            @apply text-paragraph-big font-semibold text-dark mr-[16px];
+        }
+
+        &--discount {
+            @apply bg-primary-light flex items-center justify-center min-w-[51px] h-[27px] text-paragraph-medium-alt text-primary font-semibold rounded-[5px];
+        }
+
+        &--old {
+            @apply text-paragraph-medium-alt text-gray font-semibold line-through w-full;
+        }
+    }
+
+    &__actions {
+        @apply flex items-center justify-center lg:gap-[16px] mt-[32px];
+    }
+
+    &__quantity {
+        @apply flex items-center justify-around bg-gray-lighter rounded-[10px] h-[56px] min-w-[157px];
+
+        &--counter {
+            @apply text-paragraph-medium-alt font-semibold text-dark;
+        }
+
+        &--btn {
+            @apply cursor-pointer transition-all duration-500;
+
+            &-disabled, &:hover {
+                @apply opacity-50;
+            }
+
+            &-disabled {
+                @apply pointer-events-auto cursor-not-allowed;
+            }
+        }
+    }
+
+    &__cart-icon {
+        @apply h-[16px] mr-[16px] cursor-pointer transition-all duration-500;
+
+        filter: brightness(0) invert(1);
+    }
+
+    &__cart-label {
+        @apply text-paragraph-medium-alt text-white;
+    }
 }

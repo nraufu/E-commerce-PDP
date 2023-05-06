@@ -3,13 +3,16 @@ import Navbar from './components/Navbar/Navbar';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 
 function App() {
-    // eslint-disable-next-line no-unused-vars
     const [cartItems, setCartItems] = useState([]);
+
+    const addItemToCart = (item) => {
+        setCartItems((prevCartItems) => [...prevCartItems, item]);
+    };
 
     return (
         <div id='app'>
             <Navbar cartItems={ cartItems }/>
-            <ProductDetail />
+            <ProductDetail addToCart={addItemToCart} />
         </div>
     );
 }

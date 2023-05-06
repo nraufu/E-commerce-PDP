@@ -34,6 +34,8 @@ module.exports = {
         'react/prop-types': 'off',
         'react/jsx-curly-spacing': [2, { when: 'always', children: true }],
         indent: ['error', 4],
+        'max-len': 'off',
+        'object-curly-newline': 'never',
     },
     settings: {
         'import/resolver': {
