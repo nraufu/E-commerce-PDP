@@ -13,7 +13,7 @@ export default function ProductDetail({ addToCart }) {
     const [item, setItem] = useState(0);
 
     const product = {
-        id: 1,
+        productID: 1,
         name: 'Fall Limited Edition Sneakers',
         description: 'These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.',
         price: 250.00,
@@ -54,7 +54,7 @@ export default function ProductDetail({ addToCart }) {
     const handleAddToCartClick = () => {
         if(item > 0) {
             addToCart({
-                id: product.id,
+                productID: product.productID,
                 name: product.name,
                 price: product.getPriceAfterDiscount(),
                 mainImage: product.productImages[0].src,

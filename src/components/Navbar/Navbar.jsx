@@ -8,7 +8,7 @@ import MenuIcon from '../../assets/images/icon-menu.svg';
 import CloseIcon from '../../assets/images/icon-close.svg';
 import CartIcon from '../../assets/images/icon-cart.svg';
 
-export default function Navbar({ cartItems }) {
+export default function Navbar({ cartItems, removeCartItem }) {
     const [showMenu, setShowMenu] = useState(false);
     const [showCart, setShowCart] = useState(false);
 
@@ -72,6 +72,7 @@ export default function Navbar({ cartItems }) {
                 <img src={ UserIcon } alt="user-img" className='navbar__user-icon' />
             </div>
 
-            <Cart cartItems={ cartItems } showCart={ showCart }/>
-        </nav>);
+            <Cart cartItems={ cartItems } showCart={ showCart } removeCartItem={ removeCartItem } />
+        </nav>
+    );
 }

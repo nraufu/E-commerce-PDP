@@ -3,10 +3,14 @@ import clsx from 'clsx';
 import Button from '../UI/Button/Button';
 import removeIcon from '../../assets/images/icon-delete.svg';
 
-export default function Cart({ cartItems, showCart }) {
+export default function Cart({ cartItems, showCart, removeCartItem }) {
     const cartInfoClasses = clsx('cart', {
         'cart--open': showCart,
     });
+
+    const handleItemRemove = (id) => {
+        removeCartItem(id);
+    };
 
     return (
         <div className={ cartInfoClasses }>
@@ -24,7 +28,7 @@ export default function Cart({ cartItems, showCart }) {
                                     <p className="cart__item--total">${ item.items * item.price }</p>
                                 </div>
                             </div>
-                            <button className="cart__item--remove" type="secondary">
+                            <button className="cart__item--remove" type="secondary" onClick={() => handleItemRemove(index)}>
                                 <img src={ removeIcon } alt="remove-icon" />
                             </button>
                         </div>
