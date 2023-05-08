@@ -28,6 +28,8 @@ export default function Navbar({ cartItems }) {
 
     const handleToggleMenuClick = () => setShowMenu(!showMenu);
 
+    const itemsTotal = cartItems.reduce((total, item) => total + item.items, 0);
+
     useEffect(() => {
         function handleClickOutside(event) {
             if (ref.current
@@ -63,9 +65,9 @@ export default function Navbar({ cartItems }) {
             </div>
 
             <div className="navbar__left-part">
-                <div className="navbar__cart">
-                    { cartItems.length > 0 && <span className='navbar__cart--counter'>{ cartItems.length }</span> }
-                    <img src={ CartIcon } alt="shopping-bag" className="navbar__cart--icon" onClick={ () => setShowCart(!showCart) }/>
+                <div className="navbar__cart" role='button' onClick={ () => setShowCart(!showCart) }>
+                    { cartItems.length > 0 && <span className='navbar__cart--counter'>{ itemsTotal }</span> }
+                    <img src={ CartIcon } alt="shopping-bag" className="navbar__cart--icon"/>
                 </div>
                 <img src={ UserIcon } alt="user-img" className='navbar__user-icon' />
             </div>

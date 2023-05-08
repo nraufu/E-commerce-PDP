@@ -15,6 +15,43 @@
     }
 
     &__items {
-        @apply flex flex-col;
+        @apply flex flex-col mt-[24px] mb-[32px] mx-[24px] overflow-y-auto;
+    }
+
+    &__item {
+        @apply flex items-center justify-between mb-[24px];
+
+        &:last-child {
+            @apply mb-0;
+        }
+
+        &--image {
+            @apply inline-block w-[50px] h-[50px] rounded-[4px];
+        }
+
+        &--info {
+            @apply flex flex-col;
+
+            &-sub {
+                @apply flex items-center;
+            }
+        }
+
+        &--name,
+        &--quantity {
+            @apply text-paragraph-medium text-secondary font-medium;
+        }
+
+        &--name {
+            @apply whitespace-nowrap overflow-hidden overflow-ellipsis;
+        }
+
+        &--total {
+            @apply text-dark text-paragraph-medium font-semibold ml-[6px];
+        }
+    }
+
+    &__btn-label {
+        @apply text-white text-paragraph-medium;
     }
 }
