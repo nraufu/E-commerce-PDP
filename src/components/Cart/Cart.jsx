@@ -25,7 +25,7 @@ export default function Cart({ cartItems, showCart, removeCartItem }) {
                                 <p className="cart__item--name">{ item.name }</p>
                                 <div className="cart__item--info-sub">
                                     <p className="cart__item--quantity">${ item.price } x { item.items }</p>
-                                    <p className="cart__item--total">${ item.items * item.price }</p>
+                                    <p className="cart__item--total">${ (item.items * item.price).toFixed(2) }</p>
                                 </div>
                             </div>
                             <button className="cart__item--remove" type="secondary" onClick={() => handleItemRemove(index)}>
@@ -35,7 +35,7 @@ export default function Cart({ cartItems, showCart, removeCartItem }) {
                     ))}
 
                     <Button type="primary">
-                        <span className='cart__btn-label'>Add to cart</span>
+                        <span className='cart__btn-label'>Checkout</span>
                     </Button>
                 </div>
             )}

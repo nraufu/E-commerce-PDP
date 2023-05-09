@@ -1,22 +1,43 @@
 import React, { useState } from 'react';
+import clsx from 'clsx';
+import Modal from '../UI/Modal/Modal';
+import prevIcon from '../../assets/images/icon-previous.svg';
+import nextIcon from '../../assets/images/icon-next.svg';
 
-export default function ProductImages({ productImgs }) {
-    const [mainImage, setMainImage] = useState(0);
+function ImagesGallery({ isLightBox, handleThumbnailClick , activeImage, imagesList, toggleShowLightBox }) {
+    const imagesGalleryClass = clsx('images-gallery', {
+        'images-gallery--lightbox': isLightBox,
+    });
 
-    function handleThumbnailClick(index) {
-        setMainImage(index);
-    }
+    const handleActiveImageClick = () => {
+        if( !isLightBox ) {
+            toggleShowLightBox();
+        }
+    };
 
     return (
-        <div className="product-images">
-            <div className="product-images__main-image">
-                <img src={ productImgs[mainImage].src } alt={ productImgs[mainImage].alt } />
+        <div className={ imagesGalleryClass }>
+            <div className="images-gallery__main-image" role='button' onClick={ handleActiveImageClick }>
+                <img src={ imagesList[activeImage].src } alt={ imagesList[activeImage].alt } />
+                { isLightBox && (
+                    <>
+                        <button className='images-gallery__prev-icon'>
+                            <img src={ prevIcon } alt="prev-icon" />
+                        </button>
+
+                        <button className='images-gallery__next-icon'>
+                            <img src={ nextIcon } alt="next-icon" />
+                        </button>
+                    </>
+                )}
             </div>
 
-            <div className="product-images__thumbnails">
-                { productImgs.map((productImage, index) => (
+            <div className="images-gallery__thumbnails">
+                { imagesList.map((productImage, index) => (
                     <div
-                        className={ `product-images__thumbnails-item ${mainImage === index && 'product-images__thumbnails-item--active'}` }
+                        className={ 
+                            `images-gallery__thumbnails-item ${activeImage === index && 'images-gallery__thumbnails-item--active'}` 
+                        }
                         key={ index }
                         role='button'
                         onClick={ () => handleThumbnailClick(index) }
@@ -25,6 +46,49 @@ export default function ProductImages({ productImgs }) {
                     </div>
                 )) }
             </div>
+        </div>
+    );
+}
+
+export default function ProductImages({ productImgs }) {
+    const [selectImgIndex, setSelectImgIndex] = useState(0);
+    const [selectLightboxImgIndex, setSelectLightboxImgIndex] = useState(0); // used for lightbox control only
+    const [showLightBox, setShowLightBox] = useState(false);
+
+    const handleThumbnailClick = (index) => {
+        setSelectImgIndex(index);
+        setSelectLightboxImgIndex(index);
+    }
+
+    const handleLightBoxThumbnailClick = (index) => {
+        setSelectLightboxImgIndex(index);
+    };
+
+    const handleToggleShowLightBox = () => {
+        setShowLightBox(!showLightBox);
+    };
+
+    return (
+        <div className="product-images">
+            <ImagesGallery 
+                isLightBox={ false } 
+                activeImage={ selectImgIndex }
+                imagesList={ productImgs }
+                handleThumbnailClick={ handleThumbnailClick } 
+                toggleShowLightBox={ handleToggleShowLightBox }
+            />
+
+            {/* Lightbox */}
+            { showLightBox && (
+                <Modal closeModal={ handleToggleShowLightBox }>
+                    <ImagesGallery 
+                        isLightBox={ true } 
+                        activeImage={ selectLightboxImgIndex }
+                        imagesList={ productImgs }
+                        handleThumbnailClick={ handleLightBoxThumbnailClick } 
+                    />
+                </Modal>
+            )}
         </div>
     );
 }

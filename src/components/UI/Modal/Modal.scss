@@ -1,0 +1,19 @@
+.modal {
+    @apply fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-75 flex justify-center items-center z-50;
+
+    &__content {
+        @apply flex flex-col;
+    }
+
+    &__close {
+        @apply flex justify-end mb-[24px] transition-all duration-500;
+
+        img {
+            filter: brightness(0) invert(1);
+
+            &:hover {
+                filter: invert(69%) sepia(60%) saturate(4773%) hue-rotate(346deg) brightness(99%) contrast(100%);
+            }
+        }
+    }
+}
