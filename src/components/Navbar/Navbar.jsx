@@ -32,10 +32,7 @@ export default function Navbar({ cartItems, removeCartItem }) {
 
     useEffect(() => {
         function handleClickOutside(event) {
-            if (ref.current
-          && !ref.current.contains(event.target)
-          && event.target.parentNode !== ref.current
-            ) {
+            if (ref.current && !ref.current.contains(event.target) && event.target.parentNode !== ref.current) {
                 setShowCart(false);
             }
         }

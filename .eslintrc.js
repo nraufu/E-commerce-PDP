@@ -35,7 +35,7 @@ module.exports = {
         'react/jsx-curly-spacing': [2, { when: 'always', children: true }],
         indent: ['error', 4],
         'max-len': 'off',
-        'object-curly-newline': 'never',
+        'object-curly-newline': 'off',
     },
     settings: {
         'import/resolver': {

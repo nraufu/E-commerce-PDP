@@ -6,9 +6,9 @@ function App() {
     const [cartItems, setCartItems] = useState([]);
 
     const addItemToCart = (item) => {
-        //check if item is already in cart
+        // check if item is already in cart
         const isAlreadyAdded = cartItems.findIndex((cartItem) => cartItem.productID === item.productID);
-        if(isAlreadyAdded !== -1) {
+        if (isAlreadyAdded !== -1) {
             const newCartItems = [...cartItems];
             newCartItems[isAlreadyAdded].items += item.items;
             setCartItems(newCartItems);
@@ -23,8 +23,8 @@ function App() {
 
     return (
         <div id='app'>
-            <Navbar cartItems={ cartItems } removeCartItem={deleteItemFromCart} />
-            <ProductDetail addToCart={addItemToCart} />
+            <Navbar cartItems={ cartItems } removeCartItem={ deleteItemFromCart } />
+            <ProductDetail addToCart={ addItemToCart } />
         </div>
     );
 }

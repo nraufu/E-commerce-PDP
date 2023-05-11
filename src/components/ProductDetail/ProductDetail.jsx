@@ -36,13 +36,13 @@ export default function ProductDetail({ addToCart }) {
                 alt: 'Product image 4',
             },
         ],
-        getPriceAfterDiscount(){
+        getPriceAfterDiscount() {
             return (this.price - (this.price * (this.discount / 100))).toFixed(2);
-        }
+        },
     };
 
     const handleItemsDecrementClick = () => {
-        if(item > 0) {
+        if (item > 0) {
             setItem(item - 1);
         }
     };
@@ -52,7 +52,7 @@ export default function ProductDetail({ addToCart }) {
     };
 
     const handleAddToCartClick = () => {
-        if(item > 0) {
+        if (item > 0) {
             addToCart({
                 productID: product.productID,
                 name: product.name,
@@ -62,7 +62,7 @@ export default function ProductDetail({ addToCart }) {
             });
             setItem(0);
         }
-    }
+    };
 
     return (
         <div className="product-detail">
@@ -83,7 +83,7 @@ export default function ProductDetail({ addToCart }) {
 
                 <div className="product-detail__actions">
                     <div className="product-detail__quantity">
-                        <button className={ `product-detail__quantity--btn ${ item === 0 && "product-detail__quantity--btn-disabled" }` } onClick={ handleItemsDecrementClick }>
+                        <button className={ `product-detail__quantity--btn ${item === 0 && 'product-detail__quantity--btn-disabled'}` } onClick={ handleItemsDecrementClick }>
                             <img className='product-detail__quantity--btn-icon' src={ minusIcon } alt="minus-icon" />
                         </button>
                         <span className="product-detail__quantity--counter">{ item }</span>

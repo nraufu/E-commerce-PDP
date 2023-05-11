@@ -2,22 +2,44 @@
     @apply flex flex-col;
 
     &__main-image {
-        @apply w-full h-[300px] lg:h-[445px] lg:w-[445px] lg:rounded-[15px] block overflow-hidden mb-[32px] cursor-pointer object-cover;
+        @apply relative w-full h-[300px] lg:h-[445px] lg:w-[445px] lg:rounded-[15px] block overflow-hidden mb-[32px] cursor-pointer object-cover z-[5];
     }
 
     &__thumbnails {
         @apply flex flex-nowrap gap-[31px];
 
         &-item {
-            @apply w-[88px] h-[88px] rounded-[10px] overflow-hidden cursor-pointer transition-all duration-500 border-2 border-transparent;
+            @apply relative w-[88px] h-[88px] rounded-[10px] overflow-hidden cursor-pointer transition-all duration-500 border-2 border-transparent;
+
+            &::before {
+                @apply content-[''] absolute top-0 left-0 w-full h-full bg-white opacity-0 transition-all duration-500;
+            }
 
             &:hover {
-                @apply opacity-75;
+                &::before {
+                    @apply opacity-50;
+                }
             }
 
             &--active {
-                @apply border-primary opacity-75;
+                @apply border-primary;
+
+                &::before {
+                    @apply opacity-75;
+                }
             }
+        }
+    }
+
+    &__arrow {
+        @apply absolute top-[50%] transform -translate-y-1/2 w-[56px] h-[56px] rounded-full bg-white shadow-md flex items-center justify-center cursor-pointer transition-all duration-500 z-10;
+
+        &--left {
+            @apply left-0;
+        }
+
+        &--right {
+            @apply right-0;
         }
     }
 }
