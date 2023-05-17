@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import Cart from '../Cart/Cart';
 import NavBarItem from './NavbarItem/NavbarItem';
@@ -11,8 +11,6 @@ import CartIcon from '../../assets/images/icon-cart.svg';
 export default function Navbar({ cartItems, removeCartItem }) {
     const [showMenu, setShowMenu] = useState(false);
     const [showCart, setShowCart] = useState(false);
-
-    const ref = useRef(null);
 
     const navItems = [
         { label: 'Collections', link: '/' },
@@ -27,24 +25,12 @@ export default function Navbar({ cartItems, removeCartItem }) {
     });
 
     const handleToggleMenuClick = () => setShowMenu(!showMenu);
+    const handleToggleShowCart = () => setShowCart(!showCart);
 
     const itemsTotal = cartItems.reduce((total, item) => total + item.items, 0);
 
-    useEffect(() => {
-        function handleClickOutside(event) {
-            if (ref.current && !ref.current.contains(event.target) && event.target.parentNode !== ref.current) {
-                setShowCart(false);
-            }
-        }
-
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    });
-
     return (
-        <nav className={ navbarClass } ref={ ref }>
+        <nav className={ navbarClass }>
             <div className="navbar__right-part">
                 <button className='navbar__hamburger-menu' onClick={ handleToggleMenuClick }>
                     <img src={ MenuIcon } alt="closed-menu" className='navbar__hamburger-menu--open'/>
@@ -62,14 +48,19 @@ export default function Navbar({ cartItems, removeCartItem }) {
             </div>
 
             <div className="navbar__left-part">
-                <div className="navbar__cart" role='button' onClick={ () => setShowCart(!showCart) }>
+                <div className="navbar__cart" role='button' onClick={ handleToggleShowCart }>
                     { cartItems.length > 0 && <span className='navbar__cart--counter'>{ itemsTotal }</span> }
                     <img src={ CartIcon } alt="shopping-bag" className="navbar__cart--icon"/>
                 </div>
                 <img src={ UserIcon } alt="user-img" className='navbar__user-icon' />
             </div>
 
-            <Cart cartItems={ cartItems } showCart={ showCart } removeCartItem={ removeCartItem } />
+            <Cart
+                cartItems={ cartItems }
+                showCart={ showCart }
+                removeCartItem={ removeCartItem }
+                handleCartClose={ () => setShowCart(false) }
+            />
         </nav>
     );
 }

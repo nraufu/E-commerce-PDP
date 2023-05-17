@@ -72,8 +72,10 @@ function ImagesGallery({ isLightBox, handleThumbnailClick, activeImage, imagesLi
 
     return (
         <div className={ imagesGalleryClass }>
-            <div className="images-gallery__main-image" role='button' onClick={ handleActiveImageClick }>
-                <img src={ imagesList[activeImage].src } alt={ imagesList[activeImage].alt } />
+            <div className="images-gallery__active-image" role='button' onClick={ handleActiveImageClick }>
+                <div className="images-gallery__active-image--img">
+                    <img src={ imagesList[activeImage].src } alt={ imagesList[activeImage].alt } />
+                </div>
                 { isLightBox && (
                     <>
                         <button className='images-gallery__arrow images-gallery__arrow--left' onClick={ handlePrevClick }>

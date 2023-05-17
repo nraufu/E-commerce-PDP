@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import clsx from 'clsx';
 import Button from '../UI/Button/Button';
 import removeIcon from '../../assets/images/icon-delete.svg';
 
-export default function Cart({ cartItems, showCart, removeCartItem }) {
+export default function Cart({ cartItems, showCart, removeCartItem, handleCartClose }) {
+    const cartRef = useRef(null);
+
     const cartInfoClasses = clsx('cart', {
         'cart--open': showCart,
     });
@@ -12,8 +14,21 @@ export default function Cart({ cartItems, showCart, removeCartItem }) {
         removeCartItem(id);
     };
 
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (cartRef.current && !cartRef.current.contains(event.target) && event.target.parentNode !== cartRef.current) {
+                handleCartClose();
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    });
+
     return (
-        <div className={ cartInfoClasses }>
+        <div className={ cartInfoClasses } ref={ cartRef }>
             <span className="cart__title">Cart</span>
             { cartItems.length === 0 && <span className="cart__empty">Your cart is empty.</span> }
             { cartItems.length > 0 && (

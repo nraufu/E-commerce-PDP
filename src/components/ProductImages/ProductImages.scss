@@ -1,8 +1,12 @@
 .images-gallery {
     @apply flex flex-col;
 
-    &__main-image {
-        @apply relative w-full h-[300px] lg:h-[445px] lg:w-[445px] lg:rounded-[15px] block overflow-hidden mb-[32px] cursor-pointer object-cover z-[5];
+    &__active-image {
+        @apply relative block w-full h-[300px] lg:h-[445px] lg:w-[445px] mb-[32px] z-[5];
+
+        &--img {
+            @apply block w-full h-full object-cover lg:rounded-[15px] overflow-hidden cursor-pointer;
+        }
     }
 
     &__thumbnails {
@@ -35,11 +39,11 @@
         @apply absolute top-[50%] transform -translate-y-1/2 w-[56px] h-[56px] rounded-full bg-white shadow-md flex items-center justify-center cursor-pointer transition-all duration-500 z-10;
 
         &--left {
-            @apply left-0;
+            @apply -left-[28px];
         }
 
         &--right {
-            @apply right-0;
+            @apply -right-[28px];
         }
     }
 }
