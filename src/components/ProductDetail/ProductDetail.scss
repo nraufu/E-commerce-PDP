@@ -2,23 +2,23 @@
     @apply flex flex-col gap-0 lg:flex-row lg:gap-[125px] pt-0 lg:pt-[90px] px-0 lg:px-[48px];
 
     &__right-part {
-        @apply flex flex-col justify-center;
+        @apply flex flex-col justify-center px-6 lg:px-0 py-6 lg:py-0;
     }
 
     &__subtitle {
-        @apply text-subtitle-small text-primary tracking-[2px] uppercase font-semibold mb-[24px];
+        @apply text-subtitle-extra-small lg:text-subtitle-small text-primary uppercase font-semibold mb-[19px] lg:mb-[24px] tracking-[1.85px] lg:tracking-[2px];
     }
 
     &__title {
-        @apply text-title text-dark font-semibold mb-[32px];
+        @apply text-title-mobile lg:text-title text-dark font-semibold mb-[15px] lg:mb-[32px];
     }
 
     &__description {
-        @apply text-paragraph-medium text-secondary mb-[28px] font-normal;
+        @apply text-paragraph-medium-mobile lg:text-paragraph-medium text-secondary mb-[24px] lg:mb-[28px] font-normal;
     }
 
     &__price {
-        @apply flex flex-wrap items-center;
+        @apply flex lg:flex-wrap items-center;
 
         &--new {
             @apply text-paragraph-big font-semibold text-dark mr-[16px];
@@ -29,16 +29,16 @@
         }
 
         &--old {
-            @apply text-paragraph-medium-alt text-gray font-semibold line-through w-full;
+            @apply text-paragraph-medium-alt text-gray font-semibold line-through ml-auto lg:w-full;
         }
     }
 
     &__actions {
-        @apply flex items-center justify-center lg:gap-[16px] mt-[32px];
+        @apply flex flex-col lg:flex-row items-center justify-center lg:gap-[16px] mt-[24px] lg:mt-[32px];
     }
 
     &__quantity {
-        @apply flex items-center justify-around bg-gray-lighter rounded-[10px] h-[56px] min-w-[157px];
+        @apply flex items-center justify-around bg-gray-lighter rounded-[10px] h-[56px] w-full lg:min-w-[157px] mb-[16px] lg:mb-0;
 
         &--counter {
             @apply text-paragraph-medium-alt font-semibold text-dark;

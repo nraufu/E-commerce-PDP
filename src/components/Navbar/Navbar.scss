@@ -3,12 +3,12 @@
 
     @apply relative flex items-center justify-between pt-[19px] pb-[25px] px-[24px] lg:px-0 lg:pt-[28px] lg:pb-[34px] border-b border-b-gray-light;
 
-    &::before {
-        @apply content-[''] fixed top-0 left-0 w-full h-full bg-black opacity-0 z-[5] transition-all duration-500 invisible lg:hidden;
+    &__overlay {
+        @apply fixed top-0 left-0 w-full h-full bg-black opacity-0 z-[9] transition-all duration-500 invisible lg:hidden;
     }
 
     &--open {
-        &::before {
+        #{$self}__overlay {
             @apply visible opacity-75;
         }
 

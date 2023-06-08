@@ -31,6 +31,7 @@ export default function Navbar({ cartItems, removeCartItem }) {
 
     return (
         <nav className={ navbarClass }>
+            { showMenu && <div className='navbar__overlay' onClick={ handleToggleMenuClick }></div> }
             <div className="navbar__right-part">
                 <button className='navbar__hamburger-menu' onClick={ handleToggleMenuClick }>
                     <img src={ MenuIcon } alt="closed-menu" className='navbar__hamburger-menu--open'/>

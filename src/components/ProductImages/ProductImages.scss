@@ -2,7 +2,7 @@
     @apply flex flex-col;
 
     &__active-image {
-        @apply relative block w-full h-[300px] lg:h-[445px] lg:w-[445px] mb-[32px] z-[5];
+        @apply relative block w-full h-[300px] lg:h-[445px] lg:w-[445px] mb-0 lg:mb-[32px] z-[5];
 
         &--img {
             @apply block w-full h-full object-cover lg:rounded-[15px] overflow-hidden cursor-pointer;
@@ -10,7 +10,7 @@
     }
 
     &__thumbnails {
-        @apply flex flex-nowrap gap-[31px];
+        @apply hidden lg:flex lg:flex-nowrap lg:gap-[31px];
 
         &-item {
             @apply relative w-[88px] h-[88px] rounded-[10px] overflow-hidden cursor-pointer transition-all duration-500 border-2 border-transparent;
