@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 import Cart from '../Cart/Cart';
 import NavBarItem from './NavbarItem/NavbarItem';
-import Logo from '../../assets/images/logo.svg';
 import UserIcon from '../../assets/images/image-avatar.png';
-import MenuIcon from '../../assets/images/icon-menu.svg';
-import CloseIcon from '../../assets/images/icon-close.svg';
-import CartIcon from '../../assets/images/icon-cart.svg';
+import MenuIcon from '../../assets/icons/icon-menu.svg';
+import CloseIcon from '../../assets/icons/icon-close.svg';
+import CartIcon from '../../assets/icons/icon-cart.svg';
+import Icons from '../UI/Icon/Icons';
 
 export default function Navbar({ cartItems, removeCartItem }) {
     const [showMenu, setShowMenu] = useState(false);
@@ -34,13 +34,14 @@ export default function Navbar({ cartItems, removeCartItem }) {
             { showMenu && <div className='navbar__overlay' onClick={ handleToggleMenuClick }></div> }
             <div className="navbar__right-part">
                 <button className='navbar__hamburger-menu' onClick={ handleToggleMenuClick }>
-                    <img src={ MenuIcon } alt="closed-menu" className='navbar__hamburger-menu--open'/>
+                    <span className='navbar__hamburger-menu--open'>{ Icons.menuIcon }</span>
                 </button>
-                <img src={ Logo } alt="logo" className="navbar__logo" />
+                <span className="navbar__logo">{ Icons.logo }</span>
 
                 <ul className="navbar__menu">
                     <button className='navbar__hamburger-menu' onClick={ handleToggleMenuClick }>
                         <img src={ CloseIcon } alt="opened-menu" className='navbar__hamburger-menu--close' />
+                        <span className='navbar__hamburger-menu--close'>{ Icons.closeIcon }</span>
                     </button>
                     { navItems.map((item, index) => (
                         <NavBarItem key={ index } label={ item.label } link={ item.link } />
@@ -51,7 +52,7 @@ export default function Navbar({ cartItems, removeCartItem }) {
             <div className="navbar__left-part">
                 <div className="navbar__cart" role='button' onClick={ handleToggleShowCart }>
                     { cartItems.length > 0 && <span className='navbar__cart--counter'>{ itemsTotal }</span> }
-                    <img src={ CartIcon } alt="shopping-bag" className="navbar__cart--icon"/>
+                    <span className="navbar__cart--icon">{ Icons.cartIcon }</span>
                 </div>
                 <img src={ UserIcon } alt="user-img" className='navbar__user-icon' />
             </div>

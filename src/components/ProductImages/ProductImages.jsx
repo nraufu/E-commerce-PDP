@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
 import Modal from '../UI/Modal/Modal';
-import prevIcon from '../../assets/images/icon-previous.svg';
-import nextIcon from '../../assets/images/icon-next.svg';
+import Icons from '../UI/Icon/Icons';
 
 export default function ProductImages({ productImgs }) {
     const [selectImgIndex, setSelectImgIndex] = useState(0);
@@ -79,11 +78,11 @@ function ImagesGallery({ isLightBox, handleThumbnailClick, activeImage, imagesLi
                 { isLightBox && (
                     <>
                         <button className='images-gallery__arrow images-gallery__arrow--left' onClick={ handlePrevClick }>
-                            <img src={ prevIcon } alt="prev-icon" />
+                            { Icons.prevIcon }
                         </button>
 
                         <button className='images-gallery__arrow images-gallery__arrow--right' onClick={ handleNextClick }>
-                            <img src={ nextIcon } alt="next-icon" />
+                            { Icons.nextIcon }
                         </button>
                     </>
                 ) }

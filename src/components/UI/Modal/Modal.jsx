@@ -1,5 +1,5 @@
 import React from 'react';
-import closeIcon from '../../../assets/images/icon-close.svg';
+import closeIcon from '../../../assets/icons/icon-close.svg';
 
 export default function Modal({ children, closeModal }) {
     return (

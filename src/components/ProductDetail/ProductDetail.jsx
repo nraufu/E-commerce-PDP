@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import ProductImages from '../ProductImages/ProductImages';
 import Button from '../UI/Button/Button';
-import cartIcon from '../../assets/images/icon-cart.svg';
-import plusIcon from '../../assets/images/icon-plus.svg';
-import minusIcon from '../../assets/images/icon-minus.svg';
+import cartIcon from '../../assets/icons/icon-cart.svg';
 import ProductImage1 from '../../assets/images/image-product-1.jpg';
 import ProductImage2 from '../../assets/images/image-product-2.jpg';
 import ProductImage3 from '../../assets/images/image-product-3.jpg';
 import ProductImage4 from '../../assets/images/image-product-4.jpg';
+import icons from '../UI/Icon/Icons';
 
 export default function ProductDetail({ addToCart }) {
     const [item, setItem] = useState(0);
@@ -84,11 +83,11 @@ export default function ProductDetail({ addToCart }) {
                 <div className="product-detail__actions">
                     <div className="product-detail__quantity">
                         <button className={ `product-detail__quantity--btn ${item === 0 && 'product-detail__quantity--btn-disabled'}` } onClick={ handleItemsDecrementClick }>
-                            <img className='product-detail__quantity--btn-icon' src={ minusIcon } alt="minus-icon" />
+                            { icons.minusIcon }
                         </button>
                         <span className="product-detail__quantity--counter">{ item }</span>
                         <button className="product-detail__quantity--btn" onClick={ handleItemsIncrementClick }>
-                            <img className='product-detail__quantity--btn-icon' src={ plusIcon } alt="plus-icon" />
+                            { icons.plusIcon }
                         </button>
                     </div>
 

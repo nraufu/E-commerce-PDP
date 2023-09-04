@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import clsx from 'clsx';
 import Button from '../UI/Button/Button';
-import removeIcon from '../../assets/images/icon-delete.svg';
+import removeIcon from '../../assets/icons/icon-delete.svg';
 
 export default function Cart({ cartItems, showCart, removeCartItem, handleCartClose }) {
     const cartRef = useRef(null);

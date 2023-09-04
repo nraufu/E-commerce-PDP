@@ -32,7 +32,7 @@
     }
 
     &__logo {
-        @apply mr-[56px] ml-[16px] lg:ml-0;
+        @apply inline-block mr-[56px] ml-[16px] lg:ml-0;
     }
 
     &__cart {
@@ -42,11 +42,11 @@
             @apply absolute -top-[6px] -right-[6px] flex items-center justify-center w-[19px] h-[13px] text-[10px] leading-[auto] text-white bg-primary rounded-full font-medium z-10;
         }
 
-        &--icon {
-            @apply cursor-pointer transition-all duration-500;
-    
+        &--icon svg path {
+            @apply transition-all duration-500;
+            
             &:hover {
-                filter: brightness(0.129) contrast(0.871);
+                @apply fill-dark;
             }
         }
     }
