@@ -3,9 +3,7 @@ import clsx from 'clsx';
 import Cart from '../Cart/Cart';
 import NavBarItem from './NavbarItem/NavbarItem';
 import UserIcon from '../../assets/images/image-avatar.png';
-import MenuIcon from '../../assets/icons/icon-menu.svg';
 import CloseIcon from '../../assets/icons/icon-close.svg';
-import CartIcon from '../../assets/icons/icon-cart.svg';
 import Icons from '../UI/Icon/Icons';
 
 export default function Navbar({ cartItems, removeCartItem }) {

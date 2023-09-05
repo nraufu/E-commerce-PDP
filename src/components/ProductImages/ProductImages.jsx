@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import clsx from 'clsx';
 import Modal from '../UI/Modal/Modal';
-import Icons from '../UI/Icon/Icons';
+import ImagesGallery from '../UI/GalleryImages/GalleryImages';
 
 export default function ProductImages({ productImgs }) {
     const [selectImgIndex, setSelectImgIndex] = useState(0);
@@ -42,66 +41,6 @@ export default function ProductImages({ productImgs }) {
                     />
                 </Modal>
             ) }
-        </div>
-    );
-}
-
-function ImagesGallery({ isLightBox, handleThumbnailClick, activeImage, imagesList, toggleShowLightBox }) {
-    const imagesGalleryClass = clsx('images-gallery', {
-        'images-gallery--lightbox': isLightBox,
-    });
-
-    const handleActiveImageClick = () => {
-        if (!isLightBox) {
-            toggleShowLightBox();
-        }
-    };
-
-    const handlePrevClick = () => {
-        if (activeImage > 0) {
-            handleThumbnailClick(activeImage - 1);
-        }
-    };
-
-    const handleNextClick = () => {
-        if (activeImage < imagesList.length - 1) {
-            handleThumbnailClick(activeImage + 1);
-        }
-    };
-
-    return (
-        <div className={ imagesGalleryClass }>
-            <div className="images-gallery__active-image" role='button' onClick={ handleActiveImageClick }>
-                <div className="images-gallery__active-image--img">
-                    <img src={ imagesList[activeImage].src } alt={ imagesList[activeImage].alt } />
-                </div>
-                { isLightBox && (
-                    <>
-                        <button className='images-gallery__arrow images-gallery__arrow--left' onClick={ handlePrevClick }>
-                            { Icons.prevIcon }
-                        </button>
-
-                        <button className='images-gallery__arrow images-gallery__arrow--right' onClick={ handleNextClick }>
-                            { Icons.nextIcon }
-                        </button>
-                    </>
-                ) }
-            </div>
-
-            <div className="images-gallery__thumbnails">
-                { imagesList.map((productImage, index) => (
-                    <div
-                        className={
-                            `images-gallery__thumbnails-item ${activeImage === index && 'images-gallery__thumbnails-item--active'}`
-                        }
-                        key={ index }
-                        role='button'
-                        onClick={ () => handleThumbnailClick(index) }
-                    >
-                        <img src={ productImage.src } alt={ productImage.alt } />
-                    </div>
-                )) }
-            </div>
         </div>
     );
 }

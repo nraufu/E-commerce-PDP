@@ -1,5 +1,5 @@
 .cart {
-    @apply absolute top-[76px] w-auto right-[8px] left-[8px] lg:left-[unset] lg:-right-[50px] lg:top-[94px] lg:w-[360px] bg-white 
+    @apply absolute top-[82px] w-auto right-[8px] left-[8px] lg:left-[unset] lg:-right-[50px] lg:top-[94px] lg:w-[360px] bg-white 
         border border-gray-light rounded-[10px] shadow-md opacity-0 transition-all duration-500 translate-y-[-20px] invisible z-20;
 
     &--open {
