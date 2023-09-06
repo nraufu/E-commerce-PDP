@@ -47,13 +47,19 @@
         &--btn {
             @apply cursor-pointer transition-all duration-500;
 
-            &-disabled, &:hover {
-                @apply opacity-50;
+            &-disabled {
+                .product-detail__quantity--icon {
+                    @apply lg:opacity-30;
+                }
             }
 
             &-disabled {
                 @apply pointer-events-auto cursor-not-allowed;
             }
+        }
+
+        &--icon {
+            @apply text-[14px] text-primary font-extrabold opacity-100 transition-all duration-500;
         }
     }
 

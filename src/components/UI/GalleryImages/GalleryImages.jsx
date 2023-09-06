@@ -1,8 +1,8 @@
+/* eslint-disable import/no-unresolved */
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import Icons from '../Icon/Icons';
 
 export default function ImagesGallery({ isLightBox, handleThumbnailClick, activeImage, imagesList, toggleShowLightBox }) {
     let imagesContainer = null;
@@ -68,12 +68,12 @@ export default function ImagesGallery({ isLightBox, handleThumbnailClick, active
                 )) }
 
                 <>
-                    <button className='images-gallery__arrow images-gallery__arrow--left' onClick={ handlePrevClick }>
-                        { Icons.prevIcon }
+                    <button className='images-gallery__arrow images-gallery__arrow--left'>
+                        <span className='images-gallery--icon fi fi-angle-left'></span>
                     </button>
 
-                    <button className='images-gallery__arrow images-gallery__arrow--right' onClick={ handleNextClick }>
-                        { Icons.nextIcon }
+                    <button className='images-gallery__arrow images-gallery__arrow--right'>
+                        <span className='images-gallery--icon fi fi-angle-right'></span>
                     </button>
                 </>
             </Swiper>
@@ -87,11 +87,11 @@ export default function ImagesGallery({ isLightBox, handleThumbnailClick, active
                 { isLightBox && (
                     <>
                         <button className='images-gallery__arrow images-gallery__arrow--left' onClick={ handlePrevClick }>
-                            { Icons.prevIcon }
+                            <span className="images-gallery--icon fi fi-angle-left"></span>
                         </button>
 
                         <button className='images-gallery__arrow images-gallery__arrow--right' onClick={ handleNextClick }>
-                            { Icons.nextIcon }
+                            <span className="images-gallery--icon fi fi-angle-right"></span>
                         </button>
                     </>
                 ) }

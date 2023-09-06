@@ -6,13 +6,13 @@
     }
 
     &__close {
-        @apply flex justify-end mb-[24px] transition-all duration-500;
+        @apply flex justify-end mb-[24px];
 
-        img {
-            filter: brightness(0) invert(1);
+        &--icon {
+            @apply text-white font-extrabold text-[14px] transition-all duration-500 cursor-pointer;
 
             &:hover {
-                filter: invert(69%) sepia(60%) saturate(4773%) hue-rotate(346deg) brightness(99%) contrast(100%);
+                @apply text-primary;
             }
         }
     }

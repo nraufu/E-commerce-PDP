@@ -6,7 +6,6 @@ import ProductImage1 from '../../assets/images/image-product-1.jpg';
 import ProductImage2 from '../../assets/images/image-product-2.jpg';
 import ProductImage3 from '../../assets/images/image-product-3.jpg';
 import ProductImage4 from '../../assets/images/image-product-4.jpg';
-import icons from '../UI/Icon/Icons';
 
 export default function ProductDetail({ addToCart }) {
     const [item, setItem] = useState(0);
@@ -82,12 +81,15 @@ export default function ProductDetail({ addToCart }) {
 
                 <div className="product-detail__actions">
                     <div className="product-detail__quantity">
-                        <button className={ `product-detail__quantity--btn ${item === 0 && 'product-detail__quantity--btn-disabled'}` } onClick={ handleItemsDecrementClick }>
-                            { icons.minusIcon }
+                        <button
+                            className={ `product-detail__quantity--btn ${item === 0 && 'product-detail__quantity--btn-disabled'}` }
+                            onClick={ handleItemsDecrementClick }
+                        >
+                            <span className="product-detail__quantity--icon fi fi-minus-a"></span>
                         </button>
                         <span className="product-detail__quantity--counter">{ item }</span>
                         <button className="product-detail__quantity--btn" onClick={ handleItemsIncrementClick }>
-                            { icons.plusIcon }
+                            <span className="product-detail__quantity--icon fi fi-plus-a"></span>
                         </button>
                     </div>
 

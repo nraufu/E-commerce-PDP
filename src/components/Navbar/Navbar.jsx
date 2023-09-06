@@ -4,7 +4,9 @@ import Cart from '../Cart/Cart';
 import NavBarItem from './NavbarItem/NavbarItem';
 import UserIcon from '../../assets/images/image-avatar.png';
 import CloseIcon from '../../assets/icons/icon-close.svg';
-import Icons from '../UI/Icon/Icons';
+import MenuIcon from '../../assets/icons/icon-menu.svg';
+import CartIcon from '../../assets/icons/icon-cart.svg';
+import Logo from '../../assets/icons/logo.svg';
 
 export default function Navbar({ cartItems, removeCartItem }) {
     const [showMenu, setShowMenu] = useState(false);
@@ -31,16 +33,23 @@ export default function Navbar({ cartItems, removeCartItem }) {
         <nav className={ navbarClass }>
             { showMenu && <div className='navbar__overlay' onClick={ handleToggleMenuClick }></div> }
             <div className="navbar__right-part">
-                <button className='navbar__hamburger-menu' onClick={ handleToggleMenuClick }>
-                    <span className='navbar__hamburger-menu--open'>{ Icons.menuIcon }</span>
-                </button>
-                <span className="navbar__logo">{ Icons.logo }</span>
+                <img
+                    src={ MenuIcon }
+                    alt="menu-icon"
+                    className='navbar__hamburger-menu navbar__hamburger-menu--open'
+                    onClick={ handleToggleMenuClick }
+                />
+                <img src={ Logo } alt="brand-logo" className='navbar__logo' />
 
                 <ul className="navbar__menu">
-                    <button className='navbar__hamburger-menu' onClick={ handleToggleMenuClick }>
-                        <img src={ CloseIcon } alt="opened-menu" className='navbar__hamburger-menu--close' />
-                        <span className='navbar__hamburger-menu--close'>{ Icons.closeIcon }</span>
-                    </button>
+                    <img
+                        src={ CloseIcon }
+                        alt="opened-menu"
+                        role='button'
+                        className='navbar__hamburger-menu navbar__hamburger-menu--close'
+                        onClick={ handleToggleMenuClick }
+                    />
+
                     { navItems.map((item, index) => (
                         <NavBarItem key={ index } label={ item.label } link={ item.link } />
                     )) }
@@ -50,7 +59,7 @@ export default function Navbar({ cartItems, removeCartItem }) {
             <div className="navbar__left-part">
                 <div className="navbar__cart" role='button' onClick={ handleToggleShowCart }>
                     { cartItems.length > 0 && <span className='navbar__cart--counter'>{ itemsTotal }</span> }
-                    <span className="navbar__cart--icon">{ Icons.cartIcon }</span>
+                    <img src={ CartIcon } alt='cart-icon' className="navbar__cart--icon" />
                 </div>
                 <img src={ UserIcon } alt="user-img" className='navbar__user-icon' />
             </div>

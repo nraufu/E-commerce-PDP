@@ -38,14 +38,6 @@
     &__arrow {
         @apply absolute top-[50%] transform -translate-y-1/2 w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-white shadow-md flex items-center justify-center cursor-pointer transition-all duration-500 z-10;
 
-        svg path {
-            @apply transition-all duration-500;
-            
-            &:hover {
-                @apply fill-primary;
-            }
-        }
-
         &--left {
             @apply left-4 lg:-left-7;
         }
@@ -53,5 +45,9 @@
         &--right {
             @apply right-4 lg:-right-7;
         }
+    }
+
+    &--icon {
+        @apply transition-all duration-500 font-extrabold text-dark text-[14px];
     }
 }
