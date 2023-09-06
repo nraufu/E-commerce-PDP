@@ -39,7 +39,7 @@
         @apply relative;
 
         &--counter {
-            @apply absolute -top-[6px] -right-[6px] flex items-center justify-center w-[19px] h-[13px] text-[10px] leading-[auto] text-white bg-primary rounded-full font-medium z-10;
+            @apply absolute -top-[6px] -right-[6px] flex items-center justify-center w-[19px] h-[13px] text-[10px] leading-[auto] text-white bg-primary rounded-full font-medium z-[5];
         }
 
         &--icon {
